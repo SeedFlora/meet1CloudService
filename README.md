@@ -8,6 +8,8 @@
 
 Slide menghubungkan konsep, kasus kerja, bacaan/video resmi, dan langkah lab.
 
+[Peta materi dan tautan seluruh 13 pertemuan](MATERI_KULIAH.md).
+
 <!-- lecture-materials:end -->
 
 **Kebijakan kelas:** Lab ini latihan formatif, tanpa tugas, nilai, atau penyerahan terpisah. Satu proyek besar dikerjakan oleh kelompok **3 orang**, dengan presentasi checkpoint minggu 7 (UTS) dan hasil akhir minggu 14 (UAS). Simpan hasil lab hanya bila berguna sebagai referensi atau bukti proses proyek. Baca [brief proyek kelompok](PROYEK_KELOMPOK.md). Bobot resmi tetap mengikuti RPS/LMS.
@@ -72,11 +74,11 @@ Setelah demo, hentikan `npm run dev` dengan `Ctrl+C` sebelum Lab 03, karena lab 
 1. Isi `student.json` dengan nama, kelas, dan username GitHub. Jalankan `npm test`. **Hasil:** 18 tes lulus dan halaman menampilkan data Anda.
 2. Buka aplikasi. Bandingkan output Cloud Model Lab untuk dua preset dan satu kasus baru. **Hasil:** rekomendasi model serta alasan; engine adalah bahan diskusi, bukan kunci jawaban.
 3. Panggil `/api/hello` dan `/api/recommend`. **Hasil:** JSON HTTP 200. Coba input tidak valid dan catat respons 400.
-4. Di GitHub, buat issue tugas, commit perubahan, dan amati tab Actions. **Hasil:** issue, commit, dan workflow root `.github/workflows/verify.yml` terlihat. Jalankan `npm test` lokal sebelum push.
+4. Di GitHub, buat issue latihan, commit perubahan, dan amati tab Actions. **Hasil:** issue, commit, dan workflow root `.github/workflows/verify.yml` terlihat. Jalankan `npm test` lokal sebelum push.
 5. Buat satu repo private percobaan, lihat URL-nya dari jendela incognito, lalu bandingkan dengan website Vercel yang dapat dibuka publik.
 6. Hubungkan repo ke Vercel dan buka URL produksi. **Hasil:** halaman, `/api/hello`, dan `/api/recommend` dapat diakses melalui HTTPS.
 
-Tugas analisis ada di [case studies](starter/exercises/case-studies.md). Isi [worksheet](starter/exercises/worksheet.md) untuk satu kasus: pilih model per komponen, jelaskan sedikitnya tiga faktor keputusan, batas shared responsibility, trade-off, dan satu alternatif.
+Latihan analisis ada di [case studies](starter/exercises/case-studies.md). Isi [worksheet](starter/exercises/worksheet.md) untuk satu kasus: pilih model per komponen, jelaskan sedikitnya tiga faktor keputusan, batas shared responsibility, trade-off, dan satu alternatif.
 
 Tambahkan satu tabel kecil pada worksheet: padankan satu layanan AWS, Azure, dan GCP untuk kebutuhan komputasi kasus Anda; pilih salah satu model harga di atas dan jelaskan apakah beban kerja boleh terinterupsi.
 
