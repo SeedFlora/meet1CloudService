@@ -1,0 +1,22 @@
+name: "Tugas: isi student.json"
+description: Issue #1 Praktikum 1. Tutup otomatis lewat commit "closes #1", jangan ditutup manual.
+title: "Isi data mahasiswa di student.json"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Issue ini mencatat tugas pertama Anda di repo ini.
+
+        1. Buka `student.json`, klik ikon pensil.
+        2. Isi `name`, `class`, dan `github`. **Jangan tambahkan NIM.**
+        3. Commit dengan pesan `chore: isi data mahasiswa (closes #1)`.
+
+        Issue ini akan tertutup otomatis saat commit masuk ke branch `main`.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist sebelum commit
+      options:
+        - label: 2FA sudah aktif di akun GitHub saya
+        - label: Email pribadi saya disembunyikan (Keep my email addresses private)
+        - label: student.json tidak berisi NIM, nomor HP, atau alamat

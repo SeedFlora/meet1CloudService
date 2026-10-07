@@ -91,4 +91,3 @@ Tambahkan satu tabel kecil pada worksheet: padankan satu layanan AWS, Azure, dan
 - [NIST SP 800-145: The NIST Definition of Cloud Computing](https://csrc.nist.gov/pubs/sp/800/145/final).
 - [GitHub Docs: repository templates](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 - [Vercel Docs: Git deployments](https://vercel.com/docs/git).
-

@@ -1,0 +1,12 @@
+{
+  "name": "intro-cloud-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pertemuan 1 Cloud Services (COMP6991031): Cloud Model Lab, static site + Vercel Functions",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

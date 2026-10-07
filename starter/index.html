@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloud Model Lab | Cloud Services Pertemuan 1</title>
+  <meta name="description" content="Siapa mengelola apa di IaaS, PaaS, SaaS, BaaS, dan FaaS? Lab interaktif Pertemuan 1 Cloud Services BINUS @Bandung.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect y='2' width='32' height='8' fill='%23F37021'/%3E%3Crect y='12' width='32' height='8' fill='%23002677'/%3E%3Crect y='22' width='32' height='8' fill='%23002677'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&family=Overpass+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <p class="brand">Cloud Model Lab</p>
+      <p class="course">Cloud Services (COMP6991031), Pertemuan 1</p>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 1. HERO: responsibility stack -->
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <h1 id="hero-title">Siapa yang mengelola apa?</h1>
+        <p class="lede">Pilih model layanan dan lihat garis tanggung jawab bergeser. Makin tinggi garisnya, makin sedikit yang Anda urus sendiri.</p>
+
+        <fieldset class="switcher">
+          <legend class="visually-hidden">Pilih model layanan</legend>
+          <div class="switcher-options" id="model-options"></div>
+        </fieldset>
+
+        <div class="model-detail" aria-live="polite">
+          <h2 class="model-name" id="model-name">PaaS</h2>
+          <p class="model-full" id="model-full">Platform as a Service</p>
+          <p id="model-definition"></p>
+          <p class="model-examples"><span>Contoh:</span> <span id="model-examples"></span></p>
+          <p class="self-note">Halaman ini sendiri berjalan di <strong>PaaS</strong> (file statis di CDN Vercel) dan <strong>FaaS</strong> (folder <code>/api</code>).</p>
+        </div>
+      </div>
+
+      <figure class="stack" aria-describedby="stack-summary">
+        <div class="stack-legend" aria-hidden="true">
+          <span class="key key-you">Anda kelola</span>
+          <span class="key key-provider">Provider kelola</span>
+        </div>
+        <ol class="stack-layers" id="stack-layers"></ol>
+        <figcaption id="stack-summary" class="visually-hidden"></figcaption>
+      </figure>
+    </section>
+
+    <!-- 2. ANALYZER -->
+    <section class="analyzer" aria-labelledby="analyzer-title">
+      <div class="wrap">
+        <h2 id="analyzer-title" class="section-title">Analisis kombinasi untuk studi kasus</h2>
+        <p class="section-intro">Centang kebutuhan sistem, lalu baca rekomendasinya dengan kritis. Engine ini sengaja sederhana; bobotnya ada di <code>lib/engine.js</code> dan boleh Anda ubah.</p>
+
+        <div class="analyzer-grid">
+          <form class="factor-form" id="factor-form" autocomplete="off">
+            <label class="field-label" for="preset">Muat studi kasus</label>
+            <select id="preset" name="preset">
+              <option value="">Pilih studi kasus…</option>
+            </select>
+            <p class="case-context" id="case-context" hidden></p>
+
+            <fieldset class="factors">
+              <legend class="field-label">Kebutuhan sistem</legend>
+              <div id="factor-list"></div>
+            </fieldset>
+            <button type="button" class="btn-quiet" id="clear-factors">Kosongkan pilihan</button>
+          </form>
+
+          <div class="result" id="result" aria-live="polite">
+            <p class="result-empty" id="result-empty">Belum ada kebutuhan yang dipilih. Muat studi kasus atau centang minimal satu kebutuhan di kiri.</p>
+
+            <div id="result-body" hidden>
+              <div class="result-block">
+                <h3 class="result-label">Deployment model</h3>
+                <p class="deploy-name" id="deploy-name"></p>
+                <p class="deploy-def" id="deploy-def"></p>
+                <ul class="bars" id="deploy-bars"></ul>
+              </div>
+
+              <div class="result-block">
+                <h3 class="result-label">Kombinasi service model</h3>
+                <ol class="combo" id="combo"></ol>
+              </div>
+
+              <div class="result-block">
+                <h3 class="result-label">Catatan dan trade-off</h3>
+                <ul class="notes" id="notes"></ul>
+              </div>
+
+              <div class="result-block api-block">
+                <p class="source" id="source"></p>
+                <div class="curl">
+                  <code id="curl-command"></code>
+                  <button type="button" class="btn-quiet" id="copy-curl">Salin perintah curl</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FAAS LIVE -->
+    <section class="faas wrap" aria-labelledby="faas-title">
+      <h2 id="faas-title" class="section-title">Function ini jalan di mana?</h2>
+      <p class="section-intro">Tombol di bawah memanggil <code>/api/hello</code>, sebuah Vercel Function. Klik beberapa kali: nomor invocation naik di instance yang sama. Setelah lama tidak dipanggil, instance bisa dimatikan dan panggilan berikutnya menjadi cold start di instance baru.</p>
+      <div class="faas-row">
+        <button type="button" class="btn" id="call-hello">Panggil /api/hello</button>
+        <dl class="faas-facts" id="faas-facts">
+          <div><dt>Region</dt><dd id="f-region">–</dd></div>
+          <div><dt>Cold start</dt><dd id="f-cold">–</dd></div>
+          <div><dt>Instance</dt><dd id="f-instance">–</dd></div>
+          <div><dt>Invocation ke-</dt><dd id="f-count">–</dd></div>
+          <div><dt>Latensi</dt><dd id="f-latency">–</dd></div>
+        </dl>
+      </div>
+      <pre class="json" id="hello-json" hidden></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p id="student-line">Memuat data mahasiswa…</p>
+      <p class="footer-meta">Materi COMP6991031 Cloud Services, BINUS @Bandung</p>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>

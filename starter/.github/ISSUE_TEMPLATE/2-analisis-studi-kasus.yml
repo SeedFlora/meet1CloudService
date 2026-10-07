@@ -1,0 +1,100 @@
+name: Analisis studi kasus
+description: Kumpulkan analisis service model dan deployment model untuk Latihan A–D.
+title: "[Analisis] Kasus "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Analisis **per komponen sistem**. Panduan: `exercises/case-studies.md`, kerangka: `exercises/worksheet.md`.
+        Rubrik: ketepatan kombinasi 40, justifikasi minimal 3 faktor 40, trade-off 20.
+  - type: input
+    id: kelompok
+    attributes:
+      label: Anggota kelompok
+      description: Nama lengkap anggota, pisahkan dengan koma. Tanpa NIM.
+      placeholder: Rina Wulandari, Adit Pratama, Dimas Kurniawan
+    validations:
+      required: true
+  - type: dropdown
+    id: kasus
+    attributes:
+      label: Studi kasus
+      options:
+        - A. Registrasi event kampus
+        - B. Rekam medis elektronik jaringan klinik
+        - C. Startup AI dubbing video
+        - D. Portal PPDB pemerintah kota
+    validations:
+      required: true
+  - type: textarea
+    id: komponen
+    attributes:
+      label: Komponen sistem dan faktornya
+      description: Pecah sistem menjadi 2–4 komponen dan tulis faktor penting tiap komponen.
+      placeholder: |
+        1. Form pendaftaran: traffic spiky, tim berganti tiap tahun
+        2. Data peserta: data pribadi, butuh login panitia
+    validations:
+      required: true
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Deployment model organisasi
+      options:
+        - Public cloud
+        - Private cloud
+        - Hybrid cloud
+        - Multi-cloud
+    validations:
+      required: true
+  - type: dropdown
+    id: service
+    attributes:
+      label: Service model yang dipakai
+      description: Boleh memilih lebih dari satu.
+      multiple: true
+      options:
+        - IaaS
+        - PaaS
+        - SaaS
+        - BaaS
+        - FaaS
+    validations:
+      required: true
+  - type: textarea
+    id: kombinasi
+    attributes:
+      label: Kombinasi per komponen
+      description: "Komponen → deployment model + service model + contoh layanan"
+    validations:
+      required: true
+  - type: textarea
+    id: justifikasi
+    attributes:
+      label: Justifikasi (minimal 3 faktor)
+      description: Kaitkan faktor dengan keputusan dan bandingkan dengan alternatif.
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoff
+    attributes:
+      label: Trade-off dan mitigasi
+    validations:
+      required: true
+  - type: textarea
+    id: engine
+    attributes:
+      label: Perbandingan dengan engine Cloud Model Lab
+      description: Hasil engine untuk preset kasus ini, bagian yang disetujui atau ditolak, dan alasannya.
+  - type: textarea
+    id: visibility
+    attributes:
+      label: Eksperimen public vs private
+      description: Apa yang tampil saat repo catatan-privat dibuka di jendela incognito? Mengapa website Vercel tetap bisa dibuka publik walau repo-nya private?
+  - type: checkboxes
+    id: pernyataan
+    attributes:
+      label: Pernyataan
+      options:
+        - label: Analisis ini hasil diskusi kelompok kami sendiri.
+          required: true

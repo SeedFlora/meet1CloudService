@@ -1,0 +1,34 @@
+
+> intro-cloud-lab@1.0.0 test
+> node --test
+
+✔ GET /api/hello: cold start hanya di panggilan pertama instance (32.0594ms)
+✔ GET /api/recommend tanpa parameter mengembalikan petunjuk pemakaian (0.7425ms)
+✔ GET /api/recommend dengan query string (1.4346ms)
+✔ POST /api/recommend dengan body JSON (1.1401ms)
+✔ POST dengan JSON rusak -> 400 (0.6021ms)
+✔ POST tanpa factor valid -> 400 (0.5077ms)
+✔ input kosong ditolak dengan pesan yang jelas (1.8039ms)
+✔ normalizeFactors menerima array, objek, dan query string (1.0968ms)
+✔ W1 marketplace UMKM: public + BaaS/PaaS/FaaS (1.0066ms)
+✔ W1 komponen pembayaran/email: cukup SaaS (0.4244ms)
+✔ W2 bank: analisis per komponen menghasilkan model berbeda (0.4549ms)
+✔ data teregulasi selalu memunculkan catatan region Indonesia (0.3095ms)
+✔ wajib bebas lock-in mendorong multi-cloud (0.2781ms)
+✔ kombinasi selalu berisi tepat satu model utama (1.595ms)
+✔ stack: tanggung jawab Anda tidak pernah naik dari kiri ke kanan (0.2569ms)
+✔ semua bobot hanya memakai factor yang terdaftar (0.4129ms)
+✔ semua preset di cases.json memakai factor yang valid (0.2588ms)
+✔ student.json valid dan field wajib terisi (1.4727ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 136.0422
+
+/api/hello -> HTTP 200
+/api/recommend?spiky=1&smallTeam=1 -> HTTP 200
+/api/recommend?factors=ngawur -> HTTP 400

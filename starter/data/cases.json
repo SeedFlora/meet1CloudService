@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "note": "W = contoh yang dibahas di kelas (worked example). A-D = latihan analisis, preset hanya titik awal.",
+  "cases": [
+    {
+      "id": "W1",
+      "type": "worked",
+      "title": "Marketplace UMKM batik Bandung",
+      "context": "Startup 3 developer tanpa tim ops. MVP harus live dalam 6 minggu: login pembeli dan penjual, katalog, upload foto produk. Traffic bisa naik 10x saat promo tanggal kembar.",
+      "components": [
+        {
+          "name": "Aplikasi web + backend",
+          "factors": ["smallTeam", "fastLaunch", "needAuthDb", "spiky", "lowBudget"]
+        },
+        {
+          "name": "Pembayaran, email, repo kode",
+          "factors": ["commodity", "smallTeam", "lowBudget", "fastLaunch"]
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "type": "worked",
+      "title": "Bank Pembangunan Daerah meluncurkan mobile banking",
+      "context": "Core banking sudah berjalan di data center sendiri dan diawasi OJK (POJK 11/POJK.03/2022). Mobile banking dan web promosi melonjak saat tanggal gajian. Tim IT besar, termasuk tim infrastruktur dan security.",
+      "components": [
+        {
+          "name": "Core banking & data nasabah",
+          "factors": ["regulated", "steadyLoad", "osControl"]
+        },
+        {
+          "name": "API mobile banking & web promosi",
+          "factors": ["regulated", "spiky", "fastLaunch"]
+        },
+        {
+          "name": "Email & kolaborasi internal",
+          "factors": ["commodity"]
+        }
+      ]
+    },
+    {
+      "id": "A",
+      "type": "exercise",
+      "title": "Registrasi event kampus",
+      "context": "Aplikasi pendaftaran seminar dan lomba: sepi 11 bulan, meledak 3 hari saat pendaftaran dibuka. Panitia mahasiswa berganti tiap tahun, budget nyaris nol.",
+      "components": [
+        {
+          "name": "Preset awal (keseluruhan sistem)",
+          "factors": ["spiky", "smallTeam", "lowBudget", "needAuthDb"]
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "type": "exercise",
+      "title": "Rekam medis elektronik jaringan klinik",
+      "context": "12 klinik di Jawa Barat wajib menyelenggarakan rekam medis elektronik (Permenkes 24/2022). Data pasien sangat sensitif, staf IT hanya 2 orang.",
+      "components": [
+        {
+          "name": "Preset awal (keseluruhan sistem)",
+          "factors": ["regulated", "smallTeam", "lowBudget", "commodity"]
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "type": "exercise",
+      "title": "Startup AI dubbing video",
+      "context": "Training model butuh GPU beberapa hari per bulan. API inference dipakai klien dari berbagai negara. Tim ingin bebas pindah ke provider GPU termurah.",
+      "components": [
+        {
+          "name": "Preset awal (keseluruhan sistem)",
+          "factors": ["osControl", "spiky", "avoidLockIn"]
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "type": "exercise",
+      "title": "Portal PPDB pemerintah kota",
+      "context": "Penerimaan peserta didik baru: traffic ekstrem 2 minggu per tahun, wajib terintegrasi dengan data kependudukan di server pemda. Termasuk Penyelenggara Sistem Elektronik lingkup publik.",
+      "components": [
+        {
+          "name": "Preset awal (keseluruhan sistem)",
+          "factors": ["regulated", "spiky", "legacy", "lowBudget"]
+        }
+      ]
+    }
+  ]
+}
