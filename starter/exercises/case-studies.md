@@ -1,6 +1,6 @@
 # Studi Kasus: Memilih Kombinasi Service Model dan Deployment Model
 
-Tujuan latihan ini adalah LO **(C4) Analysis**: menganalisis lima service model dan empat deployment model, lalu memilih kombinasi yang tepat. Jawaban yang dinilai bukan "benar atau salah", melainkan **ketepatan kombinasi, kekuatan justifikasi, dan kejujuran trade-off**.
+Tujuan latihan ini adalah LO **(C4) Analysis**: menganalisis lima service model dan empat deployment model, lalu memilih kombinasi yang tepat. Diskusi formatif menekankan **ketepatan kombinasi, kekuatan justifikasi, dan kejujuran trade-off**, tanpa nilai Lab 01 tersendiri.
 
 ## Cara mengerjakan
 
@@ -11,7 +11,7 @@ Tujuan latihan ini adalah LO **(C4) Analysis**: menganalisis lima service model 
 5. **Tulis trade-off** dan cara memitigasinya.
 6. **Bandingkan dengan engine** di Cloud Model Lab (pilih studi kasus di dropdown). Di mana Anda setuju, di mana tidak, dan bobot mana yang menurut Anda keliru?
 
-Format jawaban: [`worksheet.md`](worksheet.md). Pengumpulan: issue **Analisis studi kasus** di repo Anda.
+Format jawaban: [`worksheet.md`](worksheet.md). Jika ingin mendokumentasikan proses, gunakan issue **Analisis studi kasus** di repo Anda; tidak ada penyerahan mingguan.
 
 ---
 
@@ -62,7 +62,7 @@ POJK 11/POJK.03/2022 mewajibkan bank menempatkan sistem elektronik di pusat data
 
 ## Latihan A–D
 
-Preset di Cloud Model Lab hanya titik awal untuk **keseluruhan sistem**. Nilai tertinggi diberikan pada analisis yang memecah sistem menjadi komponen dan berani tidak setuju dengan engine bila alasannya kuat.
+Preset di Cloud Model Lab hanya titik awal untuk **keseluruhan sistem**. Pembahasan terbaik menunjukkan analisis yang memecah sistem menjadi komponen dan berani tidak setuju dengan engine bila alasannya kuat.
 
 ### A. Registrasi event kampus
 

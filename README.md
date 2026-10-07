@@ -1,12 +1,24 @@
 # Lab 01 — Introduction to Cloud Computing dan GitHub
 
-Repo template mandiri: [SeedFlora/meet1CloudService](https://github.com/SeedFlora/meet1CloudService). Mulai dari [modul mahasiswa dengan kunci](MODUL_MAHASISWA.md), [panduan dosen](PANDUAN_DOSEN.md), dan [panduan Git](PANDUAN_GIT.md). Versi cetak: [PDF mahasiswa](MODUL_MAHASISWA.pdf) dan [PDF dosen](PANDUAN_DOSEN.pdf). Slide kelas ada di `slides/`.
+<!-- lecture-materials:start -->
+
+## Materi teori sebelum praktikum
+
+- [Pertemuan 01: Pengantar Cloud Computing](slides/Teori_Pertemuan_01.pptx)
+
+Slide menghubungkan konsep, kasus kerja, bacaan/video resmi, dan langkah lab.
+
+<!-- lecture-materials:end -->
+
+**Kebijakan kelas:** Lab ini latihan formatif, tanpa tugas, nilai, atau penyerahan terpisah. Satu proyek besar dikerjakan oleh kelompok **3 orang**, dengan presentasi checkpoint minggu 7 (UTS) dan hasil akhir minggu 14 (UAS). Simpan hasil lab hanya bila berguna sebagai referensi atau bukti proses proyek. Baca [brief proyek kelompok](PROYEK_KELOMPOK.md). Bobot resmi tetap mengikuti RPS/LMS.
+
+Repo template mandiri: [SeedFlora/meet1CloudService](https://github.com/SeedFlora/meet1CloudService). Mulai dari [modul mahasiswa dengan kunci](MODUL_MAHASISWA.md) dan [panduan Git](PANDUAN_GIT.md). Versi cetak: [PDF mahasiswa](MODUL_MAHASISWA.pdf). Slide kelas ada di `slides/`.
 
 **RPS COMP6991031, sesi 1 (LO 1, F2F).** Lab ini memakai proyek kecil yang sama untuk membahas service model, deployment model, batas tanggung jawab, GitHub, dan Vercel.
 
 ## Materi yang disediakan
 
-Folder [starter](starter/) berisi aplikasi, `docs/`, `exercises/`, tes, dan contoh workflow. Panduan detail ada di [starter/README.md](starter/README.md), termasuk [worksheet studi kasus](starter/exercises/worksheet.md), [rubrik](starter/exercises/rubric.md), dan [panduan GitHub–Vercel](starter/docs/05-vercel-oauth-deploy.md). [Modul mahasiswa](MODUL_MAHASISWA.md) menyertakan kunci latihan dan contoh keputusan untuk seluruh kasus A–D.
+Folder [starter](starter/) berisi aplikasi, `docs/`, `exercises/`, tes, dan contoh workflow. Panduan detail ada di [starter/README.md](starter/README.md), termasuk [worksheet studi kasus](starter/exercises/worksheet.md), [panduan umpan balik formatif](starter/exercises/rubric.md), dan [panduan GitHub–Vercel](starter/docs/05-vercel-oauth-deploy.md). [Modul mahasiswa](MODUL_MAHASISWA.md) menyertakan kunci latihan dan contoh keputusan untuk seluruh kasus A–D.
 
 ## Tujuan dan teori singkat
 
@@ -68,11 +80,11 @@ Tugas analisis ada di [case studies](starter/exercises/case-studies.md). Isi [wo
 
 Tambahkan satu tabel kecil pada worksheet: padankan satu layanan AWS, Azure, dan GCP untuk kebutuhan komputasi kasus Anda; pilih salah satu model harga di atas dan jelaskan apakah beban kerja boleh terinterupsi.
 
-## Bukti yang dikumpulkan
+## Bukti latihan yang boleh disimpan untuk proyek
 
 - Tautan profil GitHub, repo, website Vercel, dan issue analisis (jika jalur cloud dikerjakan).
 - Tangkapan layar `npm test` atau tab Actions, output dua endpoint, dan perbandingan public/private.
-- Worksheet keputusan arsitektur. Untuk jalur lokal saja, kumpulkan file worksheet dan tangkapan layar aplikasi lokal; beri keterangan bahwa deploy belum dilakukan.
+- Worksheet keputusan arsitektur. Untuk jalur lokal saja, simpan file worksheet dan tangkapan layar aplikasi lokal bila bermanfaat untuk proyek; beri keterangan bahwa deploy belum dilakukan.
 
 ## Troubleshooting
 

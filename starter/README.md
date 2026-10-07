@@ -90,7 +90,7 @@ GitHub Pages hanya menyajikan file statis. Analyzer tetap jalan karena dihitung 
 - [ ] Issue **Tugas: isi student.json** dibuat (menjadi issue #1)
 - [ ] `student.json` diedit dan di-commit dengan pesan `chore: isi data mahasiswa (closes #1)`, issue #1 tertutup otomatis
 - [ ] Tab **Actions** menampilkan centang hijau
-- [ ] Issue **Analisis studi kasus** diisi untuk kasus yang dibagikan dosen (kerja kelompok, tiap anggota submit di repo masing-masing)
+- [ ] Issue **Analisis studi kasus** diisi untuk kasus yang dibagikan dosen (diskusi formatif; tidak perlu submit per anggota)
 
 **Public vs private** ([docs/04](docs/04-public-vs-private.md))
 - [ ] Buat repo private `catatan-privat`, buka URL-nya di jendela incognito dan catat hasilnya
@@ -102,16 +102,16 @@ GitHub Pages hanya menyajikan file statis. Analyzer tetap jalan karena dihitung 
 - [ ] Project ter-deploy, `/api/hello` dan `/api/recommend` bisa dipanggil dari browser dan `curl`
 - [ ] Bonus: environment variable `LAB_OWNER` di Vercel, redeploy, lalu cek pesan `/api/hello` berubah
 
-## Yang dikumpulkan
+## Tautan latihan opsional
 
-Kirim empat URL ini ke kanal pengumpulan yang ditentukan dosen:
+Empat URL ini boleh disimpan untuk portofolio atau dipakai kembali saat mengerjakan proyek kelompok; tidak ada penyerahan Lab 01 tersendiri:
 
 1. Profil GitHub: `https://github.com/<username>`
 2. Repo: `https://github.com/<username>/intro-cloud-lab`
 3. Website: `https://<nama-project>.vercel.app`
 4. Issue analisis: `https://github.com/<username>/intro-cloud-lab/issues/<nomor>`
 
-Rubrik lengkap: [`exercises/rubric.md`](exercises/rubric.md).
+Panduan umpan balik formatif: [`exercises/rubric.md`](exercises/rubric.md).
 
 ## API reference
 

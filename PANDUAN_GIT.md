@@ -1,5 +1,7 @@
 # Panduan Git Lab 01 (repo mandiri)
 
+**Kebijakan kelas:** Lab ini latihan formatif, tanpa tugas, nilai, atau penyerahan terpisah. Satu proyek besar dikerjakan oleh kelompok **3 orang**, dengan presentasi checkpoint minggu 7 (UTS) dan hasil akhir minggu 14 (UAS). Simpan hasil lab hanya bila berguna sebagai referensi atau bukti proses proyek. Baca [brief proyek kelompok](PROYEK_KELOMPOK.md). Bobot resmi tetap mengikuti RPS/LMS.
+
 Repo materi kelas: https://github.com/SeedFlora/meet1CloudService. Di GitHub pilih **Use this template ? Create a new repository**; pilih akun Anda sebagai owner. Clone repo pribadi tersebut, lalu buka terminal pada **root repo**, tempat `README.md` dan `MODUL_MAHASISWA.md` berada. GitHub Codespaces dapat dibuka dari **Code ? Codespaces** bila lingkungan lab mendukung.
 
 Sebelum commit, jalankan:

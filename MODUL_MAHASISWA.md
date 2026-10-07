@@ -1,5 +1,7 @@
 # Modul mahasiswa — Lab 01: model cloud, Git, dan API pertama
 
+**Kebijakan kelas:** Lab ini latihan formatif, tanpa tugas, nilai, atau penyerahan terpisah. Satu proyek besar dikerjakan oleh kelompok **3 orang**, dengan presentasi checkpoint minggu 7 (UTS) dan hasil akhir minggu 14 (UAS). Simpan hasil lab hanya bila berguna sebagai referensi atau bukti proses proyek. Baca [brief proyek kelompok](PROYEK_KELOMPOK.md). Bobot resmi tetap mengikuti RPS/LMS.
+
 **COMP6991031 · sesi 1.** Kerjakan pada repo Git pribadi Lab 01. Bagian yang dijalankan adalah [`starter/`](starter/); baca juga [README lab](README.md) dan [panduan Git bersama](PANDUAN_GIT.md). Gambar di modul ini adalah **contoh hasil starter**, bukan pengganti bukti pekerjaan Anda.
 
 ## Tujuan dan teori ringkas
