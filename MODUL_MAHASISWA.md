@@ -33,6 +33,10 @@ node --version
 npm test
 ```
 
+![Isi awal student.json dan hasil tes dari template](screenshots/lab01_identitas_langkah1.png)
+
+*Perintah: `Get-Content starter/student.json` dan `npm test` dari `starter/`. Fungsi: periksa tiga field identitas serta tes kode. Cara kerja: Node membaca JSON dan menjalankan 18 tes. Baca hasil: `pass 18`, `fail 0` pada salinan uji; gambar masih menunjukkan identitas contoh yang wajib Anda ganti. Ini render output command aktual, bukan tangkapan layar terminal mentah.*
+
 **Checkpoint 1:** `npm test` menampilkan 18 tes lulus. Jika gagal, periksa tanda kutip/koma pada `student.json` dan nama field `name`, `class`, `github`.
 
 ![Hasil npm test dari salinan lokal dengan 18 tes lulus](screenshots/lab01_tes_18.png)
@@ -83,6 +87,10 @@ curl -i 'http://localhost:3000/api/recommend?factors=ngawur'
 
 ![Cuplikan respons nyata dari API rekomendasi Lab 01](screenshots/lab01_api_recommend.png)
 
+![Uji lengkap ketiga request HTTP dan tes Lab 01](screenshots/lab01_uji_terkini.png)
+
+*Perintah: GET `/api/hello`, GET `/api/recommend?spiky=1&smallTeam=1`, lalu GET `/api/recommend?factors=ngawur`. Fungsi: membandingkan respons valid dan input yang ditolak. Cara kerja: server lokal memvalidasi query sebelum memberi JSON. Baca hasil: HTTP 200, 200, lalu 400; gambar adalah render output command aktual yang juga memuat ringkasan `npm test`.*
+
 * **Langkah:** Jalankan `curl -i 'http://localhost:3000/api/recommend?spiky=1&smallTeam=1'`. **Fungsi:** Melihat respons API dari faktor skala dan ukuran tim. **Cara kerja:** Endpoint memvalidasi query, memberi skor model cloud, lalu mengirim status dan JSON alasan. **Baca hasil:** Baca HTTP 200, pilihan model, faktor, dan alasan; bandingkan dengan HTTP 400 untuk faktor tidak dikenal.
 
 ## 4. Analisis kasus dan jalur Git/cloud
@@ -122,6 +130,12 @@ git diff --cached
 git commit -m "lab01: analisis model cloud dan API"
 git push
 ```
+
+![Repo template Lab 01 sudah terbit dan HEAD lokal cocok dengan main GitHub](screenshots/lab01_git_terbit.png)
+
+*SHA pada gambar adalah snapshot saat uji. Setelah modul diperbarui, jalankan ulang perintah untuk memeriksa commit terbaru.*
+
+*Perintah: `git remote -v`, `git status --short`, `git log -1 --oneline`, `git rev-parse HEAD`, dan `git ls-remote origin refs/heads/main`. Fungsi: memeriksa alamat repo, perubahan lokal, commit terakhir, dan hasil push. Cara kerja: SHA commit lokal dibandingkan dengan SHA branch `main` di GitHub. Baca hasil: `Sama: True` pada repo template pengajar; di repo pribadi Anda, SHA dapat berbeda tetapi SHA lokal dan remote harus cocok sesudah push. Ini render output command aktual.*
 
 Periksa daftar dan isi berkas staged **secara lokal** sebelum commit: tidak boleh ada `.env`, token Vercel/GitHub, password, NIM, atau tangkapan layar yang memperlihatkan kredensial. Jika ini push pertama dan `git push` meminta upstream, gunakan `git push -u origin main` bila branch Anda bernama `main`. Workflow root `.github/workflows/verify.yml` mengulangi `npm test` saat push; tetap jalankan `npm test` lokal lebih dulu.
 

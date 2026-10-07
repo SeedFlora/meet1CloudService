@@ -44,6 +44,16 @@ Status 200 pertama membuktikan fungsi hello menjawab. Status 200 kedua menunjukk
 
 ## Screenshot untuk ditunjukkan bersama command
 
+![Identitas contoh dan hasil tes Lab 01](screenshots/lab01_identitas_langkah1.png)
+
+**Perintah:** `Get-Content starter/student.json`, `npm test`. **Fungsi:** tunjukkan file yang harus diedit dan validasi awal. **Cara kerja:** Node membaca JSON dan menjalankan 18 pengujian. **Baca:** `pass 18/fail 0` dapat muncul walau nama masih contoh; dosen harus mengecek isi file. Gambar adalah render output command aktual.
+
+![Bukti repo template Lab 01 terbit di GitHub](screenshots/lab01_git_terbit.png)
+
+*SHA pada gambar adalah snapshot saat uji. Setelah modul diperbarui, jalankan ulang perintah untuk memeriksa commit terbaru.*
+
+**Perintah:** `git remote -v`, `git status --short`, `git log -1`, `git rev-parse HEAD`, `git ls-remote origin refs/heads/main`. **Fungsi:** memeriksa tujuan push dan apakah commit lokal sudah ada di remote. **Cara kerja:** kedua SHA dibandingkan. **Baca:** `Sama: True` untuk repo pengajar; mahasiswa mengulanginya pada repo pribadi setelah commit/push. Gambar adalah render output command aktual, bukan bukti push mahasiswa.
+
 ![Run ulang Node dan request lokal Lab 01](screenshots/lab01_uji_terkini.png)
 
 **Perintah:** `npm test` dan tiga GET di atas. **Fungsi:** mengunci baseline kode serta kontrak HTTP. **Cara kerja:** Node menguji fungsi, kemudian server menerima request dan mengembalikan status. **Baca:** 18/18 tes, 200/200/400. Cuplikan terminal adalah keluaran aktual yang ditata agar terbaca.
