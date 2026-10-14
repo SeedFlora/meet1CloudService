@@ -22,7 +22,7 @@ Dari **root repo Lab 01**, buka `starter/student.json`. Ganti tiga nilai contoh 
 PowerShell:
 
 ```powershell
-Set-Location .\labs\01\starter
+Set-Location .\starter
 node --version
 npm test
 ```
