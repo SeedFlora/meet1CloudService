@@ -24,4 +24,4 @@ git push
 
 Jika Anda membuat repo GitHub kosong tanpa template, dari root folder lab jalankan `git init`, `git branch -M main`, `git remote add origin https://github.com/USERNAME/NAMA_REPO.git`, lalu perintah add/commit di atas dan `git push -u origin main`. Jangan menambahkan remote kedua jika `git remote -v` sudah menunjukkan repo pribadi Anda. Jika tidak ada perubahan, Git akan menulis `nothing to commit`; tidak perlu membuat commit kosong.
 
-Gunakan `hasil/TEMPLATE_LAPORAN.md` untuk laporan. Bukti pribadi disimpan di `hasil/bukti/`. Gambar `screenshots/` adalah referensi materi, bukan bukti tugas Anda.
+Catatan opsional dapat memakai `hasil/TEMPLATE_LAPORAN.md`. Simpan screenshot pribadi di `hasil/bukti/` hanya bila diperlukan untuk referensi proyek. Gambar `screenshots/` adalah referensi materi, bukan bukti tugas Anda.

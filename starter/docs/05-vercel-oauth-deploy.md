@@ -60,8 +60,8 @@ Kalau layar Authorize tidak muncul atau gagal, cek email GitHub Anda sudah terve
 3. Klik **Import** di sebelah `intro-cloud-lab`.
 4. Pengaturan project:
    - **Framework Preset**: `Other`
-   - **Root Directory**: `./`
-   - **Build Command** dan **Output Directory**: biarkan default. Repo ini tanpa build step, jadi file di root langsung disajikan.
+   - **Root Directory**: `starter`
+   - **Build Command** dan **Output Directory**: biarkan default. Aplikasi tanpa build step. Vercel memakai `starter/index.html` dan `starter/api/` karena root aplikasi dipilih sebagai `starter`.
 5. Klik **Deploy**. Tunggu sampai muncul halaman selamat.
 
 Vercel otomatis:
@@ -113,7 +113,7 @@ Tidak ada region Vercel di Jakarta; Singapura yang paling dekat. Diskusikan: dat
 
 | Gejala | Penyebab umum | Solusi |
 |---|---|---|
-| `/api/hello` menghasilkan 404 | file tidak di folder `api/` di root, atau salah nama | pastikan path `api/hello.js` dan ada `export function GET` |
+| `/api/hello` menghasilkan 404 | Root Directory bukan `starter`, file tidak di `starter/api/`, atau salah nama | pilih Root Directory `starter`, pastikan `starter/api/hello.js` tersedia dan ekspor handler sesuai kode starter |
 | Deployment **Blocked**: commit author tidak punya akses | email commit tidak terhubung ke akun GitHub yang login Vercel, atau commit dari orang lain di repo private (Hobby) | samakan `git config user.email` dengan email terverifikasi/noreply GitHub; commit ulang |
 | Push tidak memicu deployment | GitHub App tidak punya akses ke repo, atau Login Connection belum terhubung | **Adjust GitHub App Permissions**; cek **Account Settings → Authentication** di Vercel |
 | Halaman masih versi lama | cache browser, atau deployment belum selesai | hard refresh (Ctrl+F5), cek status di tab Deployments |

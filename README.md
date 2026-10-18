@@ -47,7 +47,21 @@ Dalam diskusi teori, bandingkan contoh layanan AWS, Azure, dan GCP pada model ya
 
 Jalur browser/cloud memerlukan akun GitHub dengan email terverifikasi dan akun Vercel yang dihubungkan ke GitHub. Jalur lokal memerlukan Node.js 20+; Git diperlukan hanya jika akan membuat riwayat dan push.
 
-**Jalur lokal:** dari root repo Lab 01, masuk ke `starter/`, lalu:
+## 0. Clone ke laptop
+
+Buka PowerShell. Jalankan blok ini sekali untuk membuat salinan lokal baru di folder pengguna. Nama folder `meet1CloudService-local` membedakannya dari salinan lama.
+
+```powershell
+Set-Location -LiteralPath $env:USERPROFILE
+git clone https://github.com/SeedFlora/meet1CloudService.git meet1CloudService-local
+Set-Location -LiteralPath .\meet1CloudService-local
+Get-Location
+Get-ChildItem starter\package.json, starter\student.json
+```
+
+Hasil: terminal berada di `meet1CloudService-local` dan kedua file ditemukan. Buka folder ini di VS Code. Semua langkah berikut dimulai dari root repo ini. Clone publik cukup untuk praktik lokal, sehingga tidak perlu membuat repo pribadi atau akun Vercel. Folder clone yang sudah ada dapat dibuka melalui **File → Open Folder**; gunakan satu salinan dan lanjutkan dari root yang sama.
+
+**Jalur lokal:** terminal sekarang di root repo. Masuk ke `starter/`, lalu:
 
 ~~~bash
 cd starter
@@ -71,12 +85,12 @@ Setelah demo, hentikan `npm run dev` dengan `Ctrl+C` sebelum Lab 03, karena lab 
 
 ## Langkah kelas dan hasil yang diharapkan
 
-1. Isi `student.json` dengan nama, kelas, dan username GitHub. Jalankan `npm test`. **Hasil:** 18 tes lulus dan halaman menampilkan data Anda.
+1. Isi `starter/student.json` dengan nama publik, kelas, dan username GitHub. Jalankan `npm test`. **Hasil:** 18 tes lulus dan halaman menampilkan data Anda.
 2. Buka aplikasi. Bandingkan output Cloud Model Lab untuk dua preset dan satu kasus baru. **Hasil:** rekomendasi model serta alasan; engine adalah bahan diskusi, bukan kunci jawaban.
 3. Panggil `/api/hello` dan `/api/recommend`. **Hasil:** JSON HTTP 200. Coba input tidak valid dan catat respons 400.
-4. Di GitHub, buat issue latihan, commit perubahan, dan amati tab Actions. **Hasil:** issue, commit, dan workflow root `.github/workflows/verify.yml` terlihat. Jalankan `npm test` lokal sebelum push.
-5. Buat satu repo private percobaan, lihat URL-nya dari jendela incognito, lalu bandingkan dengan website Vercel yang dapat dibuka publik.
-6. Hubungkan repo ke Vercel dan buka URL produksi. **Hasil:** halaman, `/api/hello`, dan `/api/recommend` dapat diakses melalui HTTPS.
+4. Sebagai latihan Git opsional, di GitHub buat issue latihan, commit perubahan, dan amati tab Actions. **Hasil:** issue, commit, dan workflow root `.github/workflows/verify.yml` terlihat. Jalankan `npm test` lokal sebelum push.
+5. Sebagai latihan visibilitas opsional, buat satu repo private percobaan, lihat URL-nya dari jendela incognito, lalu bandingkan dengan website Vercel yang dapat dibuka publik.
+6. Sebagai demonstrasi cloud opsional, hubungkan repo ke Vercel dan buka URL produksi. **Hasil:** halaman, `/api/hello`, dan `/api/recommend` dapat diakses melalui HTTPS.
 
 Latihan analisis ada di [case studies](starter/exercises/case-studies.md). Isi [worksheet](starter/exercises/worksheet.md) untuk satu kasus: pilih model per komponen, jelaskan sedikitnya tiga faktor keputusan, batas shared responsibility, trade-off, dan satu alternatif.
 

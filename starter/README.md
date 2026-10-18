@@ -1,147 +1,53 @@
-# githubPagesVercel
+# Starter Lab 01: model cloud dan API pertama
 
-Repo praktikum **Pertemuan 1: Introduction to Cloud Computing**
-Mata kuliah Cloud Services (COMP6991031), Departemen Informatika, BINUS @Bandung.
+Folder ini berisi aplikasi lokal untuk COMP6991031. Mulai dari [modul mahasiswa](../MODUL_MAHASISWA.md) untuk penjelasan dan screenshot tiap langkah. Node.js 20+ sudah cukup. Aplikasi tidak memiliki dependency eksternal sehingga tidak perlu `npm install`, Docker, akun Vercel, atau file `.env` untuk praktik lokal.
 
-Repo ini kecil tapi sengaja memakai beberapa service model sekaligus. Kode sumbernya disimpan di **GitHub (SaaS)**, halaman statisnya disajikan **Vercel (PaaS)**, dan folder `api/` berjalan sebagai **Vercel Functions (FaaS)**. Jadi sambil mengerjakan praktikum, Anda sedang memakai hal yang dianalisis di kelas.
+## 1. Buka folder yang benar
 
-## Learning Outcome
+Template aktif: [SeedFlora/meet1CloudService](https://github.com/SeedFlora/meet1CloudService). Setelah clone, root repo berisi `README.md` dan folder `starter/`. Buka root repo di VS Code, lalu terminal PowerShell:
 
-> **(C4) Analysis:** Students are able to analyze the five cloud service models (IaaS, PaaS, SaaS, BaaS, FaaS) and the four deployment models (public, private, hybrid, multi-cloud), and to select an appropriate combination.
-
-Sub topic praktikum: GitHub account setup & profile configuration, Vercel signup via GitHub OAuth integration, GitHub interface exploration (repos, commits, issues), dan public vs private repository concepts.
-
-## Isi repo
-
-```
-intro-cloud-lab/
-├── index.html               Cloud Model Lab (UI)
-├── assets/                  style.css + app.js
-├── lib/engine.js            engine rekomendasi, dipakai browser DAN function
-├── api/
-│   ├── hello.js             GET  /api/hello      (contoh FaaS: region, cold start)
-│   └── recommend.js         GET/POST /api/recommend (engine sebagai FaaS)
-├── data/cases.json          studi kasus W1, W2 (contoh) dan A–D (latihan)
-├── student.json             data Anda: EDIT FILE INI
-├── tests/                   node --test (dijalankan juga oleh GitHub Actions)
-├── scripts/dev-server.mjs   dev server lokal tanpa dependency
-├── docs/                    panduan langkah demi langkah praktikum
-├── exercises/               studi kasus, worksheet, rubrik
-├── profile-readme-template/ contoh README profil GitHub
-├── .nojekyll                GitHub Pages menyajikan file apa adanya (tanpa Jekyll)
-└── .github/                 issue forms + workflow CI
+```powershell
+Set-Location .\starter
+Get-ChildItem package.json, student.json, index.html
+node --version
+npm test
 ```
 
-Tidak ada `vercel.json` dan tidak ada build step. Vercel mengenali folder `api/` secara otomatis (zero config). Itulah inti PaaS/FaaS: Anda cukup menaruh kode di tempat yang disepakati, platform yang mengurus sisanya.
+Hasil: tiga file ditemukan dan tes mencetak `pass 18`, `fail 0`. Tes hijau memeriksa format dan perilaku aplikasi. Tes tidak membuktikan identitas contoh telah diganti. Edit `starter/student.json` melalui Explorer VS Code dengan nama publik, kelas, dan username GitHub. Jangan isi NIM atau data pribadi.
 
-## Repo ini memakai service model apa?
+## 2. Jalankan aplikasi
 
-| Bagian | Service model | Yang Anda kelola | Yang dikelola provider |
-|---|---|---|---|
-| Repo, Issues, Actions di GitHub | SaaS | isi repo, visibility, collaborator, 2FA | aplikasi GitHub, server, backup |
-| `index.html`, `assets/` di Vercel | PaaS | kode frontend | build, CDN global, HTTPS, scaling |
-| `api/*.js` di Vercel | FaaS | isi fungsi | runtime Node.js, instance, scale-to-zero |
-| Supabase (mulai Pertemuan 7) | BaaS | skema data, aturan akses (RLS) | Postgres, Auth, Storage |
-| VM Linux (konsep di Pertemuan 2) | IaaS | OS ke atas | hardware, virtualisasi, jaringan fisik |
+Masih di `starter/` pada terminal pertama:
 
-Deployment model-nya: **public cloud**. Semua layanan di atas milik provider dan dipakai bersama banyak tenant.
-
-## Quick start
-
-### A. Tanpa install apa pun (jalur utama Praktikum 1)
-
-1. Buka template: `https://github.com/SeedFlora/webWeek1` lalu klik **Use this template → Create a new repository**. Nama repo: `intro-cloud-lab`, visibility: **Public**.
-2. Di repo baru Anda, buka `student.json`, klik ikon pensil, isi nama, kode kelas, dan username GitHub, lalu **Commit changes**.
-3. Buka [vercel.com/signup](https://vercel.com/signup), klik **Continue with GitHub**, lalu pilih **Hobby** bila ditanya.
-4. Di dashboard Vercel: **Add New… → Project → Import** repo `intro-cloud-lab` → Framework Preset **Other** → **Deploy**.
-5. Buka URL `https://<nama-project>.vercel.app`, klik **Panggil /api/hello**.
-
-Panduan lengkap tiap langkah ada di folder [`docs/`](docs).
-
-### B. Jalankan di laptop (opsional, butuh Node.js 20+ dan Git)
-
-```bash
-git clone https://github.com/<username-anda>/intro-cloud-lab.git
-cd intro-cloud-lab
-npm run dev      # http://localhost:3000, meniru static + /api seperti di Vercel
-npm test         # 18 test: engine, API, dan validasi student.json
+```powershell
+npm run dev
 ```
 
-Tidak perlu `npm install` karena repo ini tanpa dependency. Kalau ingin mencoba `LAB_OWNER`, salin `.env.example` menjadi `.env` lalu isi nilainya.
+Buka <http://localhost:3000>. Ganti pilihan IaaS, PaaS, SaaS, BaaS, dan FaaS lalu bandingkan tanggung jawab pengguna dan penyedia. Biarkan terminal pertama berjalan. `Ctrl+C` menghentikan server.
 
-### C. Versi statis di GitHub Pages (opsional, gratis untuk repo Public)
+## 3. Uji API pada terminal kedua
 
-1. Di repo Anda: **Settings → Pages → Build and deployment → Source: Deploy from a branch**.
-2. Branch `main`, folder **/(root)** (bukan `/docs`, folder itu berisi panduan) → **Save**.
-3. Tunggu hingga 10 menit (lihat run **pages build and deployment** di tab Actions), lalu buka `https://<username>.github.io/intro-cloud-lab/`.
+Di VS Code pilih **Terminal → New Terminal**. Terminal baru dimulai di root repo. Request HTTP berikut tidak bergantung pada folder aktif:
 
-GitHub Pages hanya menyajikan file statis. Analyzer tetap jalan karena dihitung di browser, tetapi `/api/hello` dan `/api/recommend` hanya hidup di Vercel. Supaya halaman tetap benar di subfolder `/<nama-repo>/`, `index.html` dan `assets/app.js` memakai path relatif (`assets/…`, bukan `/assets/…`) dan repo berisi file `.nojekyll`. Jangan ubah kembali ke path absolut.
-
-## Checklist Praktikum 1
-
-**GitHub account & profil** ([docs/01](docs/01-github-account.md), [docs/02](docs/02-profile-readme.md))
-- [ ] Akun GitHub dengan username profesional, email sudah terverifikasi
-- [ ] 2FA aktif, recovery codes disimpan di tempat aman
-- [ ] "Keep my email addresses private" aktif, `git config user.email` memakai alamat noreply
-- [ ] Profil terisi (nama, foto, bio) dan profile README dari [`profile-readme-template`](profile-readme-template/README.md)
-
-**Repo, commit, issue** ([docs/03](docs/03-repo-commit-issue.md))
-- [ ] Repo `intro-cloud-lab` dibuat dari template (Public)
-- [ ] Issue **Tugas: isi student.json** dibuat (menjadi issue #1)
-- [ ] `student.json` diedit dan di-commit dengan pesan `chore: isi data mahasiswa (closes #1)`, issue #1 tertutup otomatis
-- [ ] Tab **Actions** menampilkan centang hijau
-- [ ] Issue **Analisis studi kasus** diisi untuk kasus yang dibagikan dosen (diskusi formatif; tidak perlu submit per anggota)
-
-**Public vs private** ([docs/04](docs/04-public-vs-private.md))
-- [ ] Buat repo private `catatan-privat`, buka URL-nya di jendela incognito dan catat hasilnya
-- [ ] Jawab di issue analisis: mengapa website Vercel Anda tetap bisa dibuka publik walau repo-nya boleh private?
-
-**Vercel via GitHub OAuth** ([docs/05](docs/05-vercel-oauth-deploy.md))
-- [ ] Akun Vercel (Hobby) dibuat lewat Continue with GitHub
-- [ ] Vercel GitHub App hanya diberi akses ke repo yang dipilih (Only select repositories)
-- [ ] Project ter-deploy, `/api/hello` dan `/api/recommend` bisa dipanggil dari browser dan `curl`
-- [ ] Bonus: environment variable `LAB_OWNER` di Vercel, redeploy, lalu cek pesan `/api/hello` berubah
-
-## Tautan latihan opsional
-
-Empat URL ini boleh disimpan untuk portofolio atau dipakai kembali saat mengerjakan proyek kelompok; tidak ada penyerahan Lab 01 tersendiri:
-
-1. Profil GitHub: `https://github.com/<username>`
-2. Repo: `https://github.com/<username>/intro-cloud-lab`
-3. Website: `https://<nama-project>.vercel.app`
-4. Issue analisis: `https://github.com/<username>/intro-cloud-lab/issues/<nomor>`
-
-Panduan umpan balik formatif: [`exercises/rubric.md`](exercises/rubric.md).
-
-## API reference
-
-| Endpoint | Contoh | Keterangan |
-|---|---|---|
-| `GET /api/hello` | `curl https://<project>.vercel.app/api/hello` | region, cold start, instance id, jumlah invocation |
-| `GET /api/recommend` | `curl https://<project>.vercel.app/api/recommend` | tanpa parameter: daftar factor yang valid |
-| `GET /api/recommend?…` | `curl "https://<project>.vercel.app/api/recommend?spiky=1&smallTeam=1"` | rekomendasi dari query string, juga bisa `?factors=spiky,smallTeam` |
-| `POST /api/recommend` | lihat di bawah | rekomendasi dari body JSON |
-
-```bash
-curl -X POST https://<project>.vercel.app/api/recommend \
-  -H "Content-Type: application/json" \
-  -d '{"factors": ["regulated", "legacy", "spiky"]}'
+```powershell
+curl.exe -i http://localhost:3000/api/hello
+curl.exe -i "http://localhost:3000/api/recommend?spiky=1&smallTeam=1"
+curl.exe -i "http://localhost:3000/api/recommend?factors=ngawur"
 ```
 
-Di Windows PowerShell, pakai `curl.exe` (bukan alias `curl`) dan escape tanda kutip, atau gunakan `Invoke-RestMethod`.
+Hasil berurutan: HTTP 200, 200, lalu 400. Request terakhir sengaja menguji validasi input. Untuk mengulang tes tanpa menutup server, di terminal kedua jalankan `Set-Location .\starter`, lalu `npm test`.
 
-Factor yang valid: `regulated`, `legacy`, `osControl`, `commodity`, `smallTeam`, `fastLaunch`, `needAuthDb`, `spiky`, `steadyLoad`, `lowBudget`, `avoidLockIn`.
+## 4. Diskusi sesuai subtopik
 
-## Tentang engine rekomendasi
+- [Pembuatan akun GitHub](docs/01-github-account.md) dan [profil GitHub](docs/02-profile-readme.md).
+- [Repo, commit, dan issue](docs/03-repo-commit-issue.md), termasuk file `starter/student.json` dan workflow di root repo.
+- [Public dan private repository](docs/04-public-vs-private.md).
+- [Vercel melalui GitHub OAuth](docs/05-vercel-oauth-deploy.md). Untuk demonstrasi cloud, impor repo pribadi dan pilih **Root Directory `starter`**, Framework **Other**, tanpa build command. Jalur ini membutuhkan akun cloud dan bersifat tambahan setelah aplikasi lokal berhasil.
 
-`lib/engine.js` rule-based dan transparan: tiap factor punya bobot positif atau negatif untuk tiap model. Engine ini **alat bantu diskusi, bukan kunci jawaban**. Yang dinilai adalah analisis Anda: apakah Anda bisa menjelaskan kapan engine benar, kapan keliru, dan bobot mana yang seharusnya diubah. Silakan ubah bobotnya, jalankan `npm test`, lalu lihat efeknya di UI.
+GitHub Pages menyajikan file statis dan tidak menjalankan folder `api/`. Gunakan server lokal di atas untuk mencoba halaman beserta API.
 
-## Catatan dosen
+## Isi aplikasi
 
-- Repo template saat ini: `SeedFlora/webWeek1` (public). Aktifkan **Settings → General → centang Template repository** agar tombol **Use this template** muncul. Kalau nama repo atau akunnya berubah, sesuaikan URL template di bagian Quick start.
-- Issue forms di `.github/ISSUE_TEMPLATE` ikut tersalin ke repo mahasiswa yang dibuat dari template.
-- Next.js baru dipakai di Pertemuan 8. Handler di `api/` sengaja memakai signature `export function GET(request)` agar transisinya ke Route Handlers Next.js mulus.
+`index.html` dan `assets/` adalah frontend. `lib/engine.js` menghitung rekomendasi model cloud. `api/` berisi handler HTTP. `tests/` menguji engine, API, dan format identitas. `scripts/dev-server.mjs` menyajikan semuanya di laptop. [Studi kasus](exercises/case-studies.md) dan [worksheet](exercises/worksheet.md) membantu membandingkan keputusan per komponen. Engine adalah alat diskusi dan rekomendasinya perlu diperiksa dengan kebutuhan kasus.
 
-## Lisensi
-
-MIT. Lihat [LICENSE](LICENSE).
+Semua catatan, screenshot pribadi, commit, dan push lab bersifat opsional sebagai referensi proyek kelompok. Praktik lokal selesai saat halaman terbuka, pilihan model berubah, dan tiga request API memberi hasil yang dijelaskan.

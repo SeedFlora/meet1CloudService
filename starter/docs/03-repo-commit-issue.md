@@ -41,14 +41,14 @@ Yang perlu Anda kenali:
 
 ## 3. Buat issue #1
 
-1. Tab **Issues → New issue** → pilih **Tugas: isi student.json**.
-2. Biarkan judul bawaan, klik **Create**. Perhatikan nomornya, seharusnya `#1`.
+1. Tab **Issues → New issue** → pilih **Latihan: isi student.json**.
+2. Biarkan judul bawaan, klik **Create**. Catat nomor issue. Contoh berikut memakai `#1`; gunakan nomor yang tampil pada repo Anda.
 
 Issue adalah cara tim mencatat *apa* yang perlu dikerjakan. Commit adalah catatan *apa* yang sudah dikerjakan. Keduanya bisa dihubungkan.
 
 ## 4. Commit lewat web editor
 
-1. Tab **Code** → klik `student.json` → ikon pensil (**Edit this file**).
+1. Tab **Code** → buka folder `starter` → klik `student.json` → ikon pensil (**Edit this file**).
 2. Ganti isinya:
 
    ```json
@@ -69,8 +69,8 @@ Issue adalah cara tim mencatat *apa* yang perlu dikerjakan. Commit adalah catata
 4. Pilih **Commit directly to the main branch** → **Commit changes**.
 
 Lalu amati:
-- **Issue #1 tertutup otomatis.** Kata kunci `closes`, `fixes`, atau `resolves` diikuti `#N` menutup issue saat commit masuk ke default branch.
-- **Tab Actions** menjalankan workflow CI (`npm test`). Centang hijau berarti `student.json` valid.
+- **Issue yang dirujuk tertutup otomatis.** Kata kunci `closes`, `fixes`, atau `resolves` diikuti `#N` menutup issue saat commit masuk ke default branch.
+- **Tab Actions** menjalankan workflow CI (`npm test`). Centang hijau berarti tes kode dan format `starter/student.json` lulus. Periksa isi identitas secara manual karena contoh valid juga dapat lolos.
 - **Vercel** membuat deployment baru dalam hitungan detik, kalau project sudah terhubung ([docs/05](05-vercel-oauth-deploy.md)). Kalau belum, lanjutkan saja dan cek lagi setelah deploy.
 
 ## 5. Membaca riwayat commit
@@ -80,7 +80,7 @@ Lalu amati:
 3. Klik SHA untuk melihat **diff**: baris merah dihapus, baris hijau ditambahkan.
 4. Di halaman file, tombol **History** menampilkan commit yang menyentuh file itu saja, dan **Blame** menunjukkan siapa terakhir mengubah tiap baris.
 
-SHA adalah hash dari isi snapshot. Isi berbeda pasti menghasilkan SHA berbeda, sehingga riwayat Git sulit dipalsukan diam-diam.
+SHA adalah hash dari isi snapshot. SHA mengidentifikasi objek commit. Perubahan isi atau metadata menghasilkan objek commit baru, sehingga SHA berguna untuk mencocokkan versi lokal dan remote.
 
 ## 6. Pesan commit yang baik
 
@@ -101,10 +101,10 @@ Hindari `update`, `fix bug`, `asdf`, atau `final revisi 2`. Pesan commit adalah 
 ```bash
 git clone https://github.com/<username>/intro-cloud-lab.git
 cd intro-cloud-lab
-# edit student.json dengan editor favorit
+# edit starter/student.json dengan editor favorit
 git status                      # file apa yang berubah?
 git diff                        # apa perubahannya?
-git add student.json            # masukkan ke staging area
+git add starter/student.json            # masukkan ke staging area
 git commit -m "chore: isi data mahasiswa (closes #1)"
 git push                        # kirim ke GitHub
 git log --oneline -5            # 5 commit terakhir

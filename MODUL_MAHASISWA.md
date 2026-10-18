@@ -10,10 +10,24 @@ Setelah praktik, Anda dapat menjelaskan lima karakteristik cloud NIST, membedaka
 
 ## Prasyarat
 
-- Repo template [meet1CloudService](https://github.com/SeedFlora/meet1CloudService) sudah disalin ke repo pribadi; Git terpasang dan `origin` menunjuk repo Anda. Jika belum, ikuti [panduan Git](PANDUAN_GIT.md).
+- Folder [meet1CloudService](https://github.com/SeedFlora/meet1CloudService) tersedia di laptop. Clone publik cukup untuk praktik lokal. Repo pribadi dan [panduan Git](PANDUAN_GIT.md) dipakai hanya untuk latihan commit/push opsional.
 - Node.js 20+ untuk jalur lokal, browser, dan terminal PowerShell atau Bash/Git Bash. Proyek ini tidak punya dependency eksternal, jadi **tidak perlu `npm install`**.
 - Akun GitHub untuk push. Akun Vercel hanya untuk bagian deployment pilihan dosen; jalur lokal dapat dikerjakan tanpa akun cloud.
 - Jangan masukkan NIM, token, password, atau data pribadi lain ke repo publik.
+
+## 0. Clone ke laptop
+
+Buka PowerShell. Jalankan blok ini sekali untuk membuat salinan lokal baru di folder pengguna. Nama folder `meet1CloudService-local` membedakannya dari salinan lama.
+
+```powershell
+Set-Location -LiteralPath $env:USERPROFILE
+git clone https://github.com/SeedFlora/meet1CloudService.git meet1CloudService-local
+Set-Location -LiteralPath .\meet1CloudService-local
+Get-Location
+Get-ChildItem starter\package.json, starter\student.json
+```
+
+Hasil: terminal berada di `meet1CloudService-local` dan kedua file ditemukan. Buka folder ini di VS Code. Semua langkah berikut dimulai dari root repo ini. Clone publik cukup untuk praktik lokal, sehingga tidak perlu membuat repo pribadi atau akun Vercel. Folder clone yang sudah ada dapat dibuka melalui **File → Open Folder**; gunakan satu salinan dan lanjutkan dari root yang sama.
 
 ## 1. Periksa starter dan isi identitas aman
 
@@ -97,7 +111,7 @@ curl -i 'http://localhost:3000/api/recommend?factors=ngawur'
 
 ## 4. Analisis kasus dan jalur Git/cloud
 
-Pilih **satu** kasus A–D dari [case studies](starter/exercises/case-studies.md). Isi [worksheet](starter/exercises/worksheet.md): pecah sistem menjadi komponen, pilih service/deployment model, berikan sedikitnya tiga alasan, tulis trade-off, lalu bandingkan dengan keluaran aplikasi. Di repo Lab 01 ini, gunakan `hasil/lab01.md` sebagai laporan dan tautkan worksheet atau salin analisisnya ke sana.
+Pilih **satu** kasus A–D dari [case studies](starter/exercises/case-studies.md). Isi [worksheet](starter/exercises/worksheet.md): pecah sistem menjadi komponen, pilih service/deployment model, berikan sedikitnya tiga alasan, tulis trade-off, lalu bandingkan dengan keluaran aplikasi. Diskusikan hasilnya. Catatan opsional dapat disimpan di `hasil/lab01.md` atau worksheet; tidak perlu mengumpulkan laporan per lab.
 
 ![Preset studi kasus pertama menampilkan faktor tercentang, model cloud, dan alasan rekomendasi](screenshots/lab01_studi_kasus.png)
 
@@ -107,9 +121,9 @@ Pilih **satu** kasus A–D dari [case studies](starter/exercises/case-studies.md
 
 Jika dosen meminta deployment, hubungkan repo pribadi ke Vercel dan atur **Root Directory** proyek menjadi `starter`; ikuti [panduan Vercel asal](starter/docs/05-vercel-oauth-deploy.md). Periksa halaman dan kedua endpoint pada URL HTTPS yang diberikan Vercel. Jangan menganggap GitHub Pages menjalankan folder `api/`: Pages hanya menyajikan berkas statis. Perintah deploy dan pilihan paket layanan dapat berubah; gunakan dashboard dan dokumentasi resmi saat praktik.
 
-**Checkpoint 4:** laporan menjelaskan keputusan **per komponen** dan menyatakan kapan rekomendasi engine perlu ditolak. Jika deploy dikerjakan, URL produksi membuka halaman dan endpoint API.
+**Checkpoint 4:** Anda dapat menjelaskan keputusan **per komponen** dan menyatakan kapan rekomendasi engine perlu ditolak. Jika deploy dikerjakan, URL produksi membuka halaman dan endpoint API.
 
-## Pertanyaan yang dijawab di laporan
+## Pertanyaan diskusi
 
 1. Bagian mana yang tetap Anda kelola ketika memakai PaaS dan FaaS pada proyek ini?
 2. Apa beda public cloud dan multi-cloud? Apakah memakai GitHub dan Vercel otomatis membuat arsitektur multi-cloud?
@@ -117,11 +131,11 @@ Jika dosen meminta deployment, hubungkan repo pribadi ke Vercel dan atur **Root 
 4. Apa arti status 400 pada permintaan faktor tidak dikenal? Di mana validasi input dilakukan?
 5. Mengapa repo private dan halaman Vercel publik bisa memiliki visibilitas berbeda?
 
-## Bukti, commit, dan push
+## Catatan dan Git opsional
 
-Salin [`hasil/TEMPLATE_LAPORAN.md`](hasil/TEMPLATE_LAPORAN.md) menjadi `hasil/lab01.md` **dari root repo**. Masukkan jawaban, simpan screenshot **milik Anda** untuk tes/UI/API di `hasil/bukti/`, serta tautan GitHub dan Vercel bila dipakai. Screenshot di modul ini hanya contoh bentuk hasil.
+Praktik lokal sudah selesai. Bagian ini hanya untuk menyimpan referensi proyek pada repo pribadi. Salin [`hasil/TEMPLATE_LAPORAN.md`](hasil/TEMPLATE_LAPORAN.md) menjadi `hasil/lab01.md` **dari root repo**. Masukkan jawaban, simpan screenshot **milik Anda** untuk tes/UI/API di `hasil/bukti/`, serta tautan GitHub dan Vercel bila dipakai. Screenshot di modul ini hanya contoh bentuk hasil.
 
-Kembali ke root repo, lalu jalankan:
+Terminal kedua saat ini berada di `starter/`. Jalankan `cd ..` sekali untuk kembali ke root repo, lalu jalankan blok Git berikut hanya pada repo pribadi:
 
 ```bash
 git status --short
@@ -184,7 +198,7 @@ Dua request pertama memberi HTTP 200 dan JSON. Faktor tidak dikenal ditolak HTTP
 
 ![Halaman Cloud Model Lab yang dijalankan kembali dari repo Lab 01](screenshots/lab01_web_live_terkini.png)
 
-*Perintah: `npm run dev` dari `starter/`, lalu buka `http://localhost:3000`. Server Node menyajikan HTML, JavaScript, dan endpoint lokal. Perhatikan bahwa gambar memakai identitas contoh; saat tugas, ganti `starter/student.json` dengan identitas publik Anda sebelum mengambil bukti sendiri.*
+*Perintah: `npm run dev` dari `starter/`, lalu buka `http://localhost:3000`. Server Node menyajikan HTML, JavaScript, dan endpoint lokal. Perhatikan bahwa gambar memakai identitas contoh; saat praktik, ganti `starter/student.json` dengan identitas publik Anda sebelum mengambil bukti sendiri.*
 
 ### 2. Kunci perbandingan model layanan
 
